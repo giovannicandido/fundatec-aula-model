@@ -23,5 +23,7 @@ public class Cliente {
     private String cpf;
 
     @OneToOne
+    @JoinColumn(name = "", columnDefinition = "string")
     private Endereco endereco;
+
 }
