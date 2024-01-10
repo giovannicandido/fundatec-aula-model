@@ -18,7 +18,7 @@ public class ClienteController {
 
 
     @GetMapping
-    public List<ClienteResponse> listaClientes() {
+    public List<ClienteResponse> listaClientes(@RequestParam(required = false) String nome) {
 
         return clientes.stream()
                 .map(ClienteResponse::of)

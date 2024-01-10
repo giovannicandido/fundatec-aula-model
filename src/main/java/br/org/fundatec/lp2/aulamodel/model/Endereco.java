@@ -1,7 +1,5 @@
 package br.org.fundatec.lp2.aulamodel.model;
 
-import br.org.fundatec.lp2.aulamodel.AulaModelApplication;
-import jakarta.annotation.Generated;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,7 +14,7 @@ public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idQualquer;
+    private Integer id;
 
     private String logradouro;
 

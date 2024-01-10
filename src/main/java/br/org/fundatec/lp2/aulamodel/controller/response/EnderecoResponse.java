@@ -1,6 +1,10 @@
 package br.org.fundatec.lp2.aulamodel.controller.response;
 
+import br.org.fundatec.lp2.aulamodel.model.Endereco;
+import lombok.Builder;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * "logradouro": "Av. Ipiranga",
@@ -10,6 +14,7 @@ import lombok.Data;
  *  *         "estado": "RS"
  */
 @Data
+@Builder
 public class EnderecoResponse {
     private Integer id;
     private String logradouro;
@@ -17,4 +22,20 @@ public class EnderecoResponse {
     private String bairro;
     private String cidade;
     private String estado;
+
+    public static List<EnderecoResponse> of(List<Endereco> endereco) {
+        return endereco.stream()
+                .map(EnderecoResponse::of)
+                .toList();
+    }
+
+    public static EnderecoResponse of(Endereco endereco) {
+        return EnderecoResponse.builder()
+                .id(endereco.getId())
+                .bairro(endereco.getBairro())
+                .cidade(endereco.getCidade())
+                .numero(endereco.getNumero())
+                .logradouro(endereco.getLogradouro())
+                .build();
+    }
 }

@@ -39,9 +39,9 @@ public class ClienteResponse {
                 .id(cliente.getId())
                 .nome(cliente.getNome())
                 .cpf(cliente.getCpf())
-//                .endereco(
-//                        cliente.getEndereco().stream
-//                )
+                .endereco(
+                        List.of(EnderecoResponse.of(cliente.getEndereco()))
+                )
                 .build();
     }
 }
